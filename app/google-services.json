@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "679754078260",
+    "firebase_url": "https://miappprueba3.firebaseio.com",
+    "project_id": "miappprueba3",
+    "storage_bucket": "miappprueba3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679754078260:android:d3728ccb33d1bf73",
+        "android_client_info": {
+          "package_name": "cl.vicentepc.miappprueba3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679754078260-j54r5ovd8uu1ou8s6vvqac221jenlr28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.vicentepc.miappprueba3",
+            "certificate_hash": "aaebb9853729439c91bbcd381507e6280832d5fd"
+          }
+        },
+        {
+          "client_id": "679754078260-6qf6lk73bl3eio340fb287turqnd7a3v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.vicentepc.miappprueba3",
+            "certificate_hash": "42acdf0fa5e8cc5e04ed7d5bb61c77087880779e"
+          }
+        },
+        {
+          "client_id": "679754078260-rqva0u45b4tplpv60kj1q5bg81d5oki7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "679754078260-rqva0u45b4tplpv60kj1q5bg81d5oki7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7ZzzeUpjOKMnSO139v0q6cG-BikdcLWo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679754078260-rqva0u45b4tplpv60kj1q5bg81d5oki7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
