@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import cl.vicentepc.miappprueba3.R;
-import cl.vicentepc.miappprueba3.data.User;
+import cl.vicentepc.miappprueba3.data.CurrentUser;
 import cl.vicentepc.miappprueba3.login.LoginActivity;
 
 
@@ -60,7 +60,16 @@ public class DashboardFragment extends Fragment {
         });
 
         TextView userEmail = view.findViewById(R.id.textViewEmail);
-        userEmail.setText(new User().email());
+        userEmail.setText(new CurrentUser().email());
 
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        new RegisterUser(getContext()).firebaseUserRegister();
+
+    }
+
 }

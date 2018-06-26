@@ -1,6 +1,6 @@
 package cl.vicentepc.miappprueba3.login;
 
-import cl.vicentepc.miappprueba3.data.User;
+import cl.vicentepc.miappprueba3.data.CurrentUser;
 
 public class UserValidation {
 
@@ -12,7 +12,7 @@ public class UserValidation {
 
     public void validateUser(){
 
-        if(new User().getUser()!= null){
+        if(new CurrentUser().getCurrentUser()!= null){
 
             callback.userLogged();
 

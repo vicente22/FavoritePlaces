@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity implements UserCallback{
                                 //new AuthUI.IdpConfig.TwitterBuilder().build()))
                         .setTheme(R.style.LoginTheme)
                         .setLogo(R.mipmap.logo)
-                        .setIsSmartLockEnabled(false)
                         .build(),
                 RC_SIGN_IN);
     }

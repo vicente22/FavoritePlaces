@@ -1,28 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".views.main.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:text="Direccion: "
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/black_overlay"
+            android:background="@color/colorPrimaryLight"
+            android:padding="10dp"
+            android:text="TU LUGAR FAVORITO"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:text="Enviar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_margin="5dp"
+            android:text="Nombre de tu ruta: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/ediTextRoute"
+            android:layout_margin="5dp"
+            android:hint="Ingresa el nombre de tu ruta..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_margin="5dp"
+            android:text="Ingresa la fecha: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextVisitDate"
+            android:layout_margin="5dp"
+            android:hint="Ingrese fecha de la visita..."
+            android:inputType="date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_margin="5dp"
+            android:text="Direccion: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextAddress"
+            android:layout_margin="5dp"
+            android:hint="Ingrese la dirección..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_margin="5dp"
+            android:text="Description: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:lines="3"
+            android:maxLines="3"
+            android:layout_margin="5dp"
+            android:hint="Ingrese una leve descripción..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/sendBtn"
+            android:layout_margin="5dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:text="Enviar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>
