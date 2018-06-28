@@ -4,8 +4,7 @@ import java.util.Date;
 
 public class Place{
 
-    private String rute, address, description, photo;
-    private Date date;
+    private String rute, address, description, date;
 
     public Place() {
     }
@@ -34,19 +33,11 @@ public class Place{
         this.description = description;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

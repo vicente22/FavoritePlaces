@@ -18,7 +18,7 @@ public class ResultActivity extends AppCompatActivity {
         String resultRouteAddress = getIntent().getStringExtra("routeAddress");
         String resultRouteDescription = getIntent().getStringExtra("routeDescription");
 
-        Log.d("DATA", resultNameRute);
+        Log.d("DATA", resultNameRute + resultRouteDate + resultRouteAddress + resultRouteDescription);
 
     }
 }

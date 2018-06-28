@@ -64,12 +64,5 @@ public class DashboardFragment extends Fragment {
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        new RegisterUser(getContext()).firebaseUserRegister();
-
-    }
 
 }

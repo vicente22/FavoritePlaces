@@ -7,21 +7,10 @@ public class Nodes {
 
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference();
 
-    public DatabaseReference users(){
-
-        return root.child("users");
-
-    }
 
     public DatabaseReference places(){
 
         return root.child("places");
-
-    }
-
-    public DatabaseReference user(String key){
-
-        return users().child(key);
 
     }
 
