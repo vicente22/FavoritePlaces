@@ -1,10 +1,10 @@
 package cl.vicentepc.miappprueba3.models;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class Place{
+public class Place implements Serializable{
 
-    private String rute, address, description, date;
+    private String rute, address, description, date, key_place;
 
     public Place() {
     }
@@ -39,5 +39,13 @@ public class Place{
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getKey_place() {
+        return key_place;
+    }
+
+    public void setKey_place(String key_place) {
+        this.key_place = key_place;
     }
 }

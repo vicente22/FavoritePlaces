@@ -12,6 +12,15 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="form">Formulario</string>
+    <string name="contenido">
+
+        Lorem ipsum dolor sit amet consectetur adipiscing elit proin, fermentum class lectus commodo neque aliquam sed aenean,
+        curae nulla erat dapibus tempor donec hac. Nibh lobortis purus suscipit curae proin eros pretium, consequat conubia bibendum
+        ridiculus orci sodales tempor, cras facilisis a accumsan facilisi id. Commodo viverra dictumst gravida lacinia orci vitae eu
+        accumsan nec bibendum,
+        sed sociis integer sem ridiculus odio quam neque maecenas, sodales porta pellentesque libero magna magnis augue leo curabitur.
+
+    </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

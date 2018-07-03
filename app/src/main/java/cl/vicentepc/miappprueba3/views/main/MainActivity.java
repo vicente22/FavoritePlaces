@@ -14,11 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Node;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,14 +33,14 @@ import cl.vicentepc.miappprueba3.R;
 import cl.vicentepc.miappprueba3.data.CurrentUser;
 import cl.vicentepc.miappprueba3.data.Nodes;
 import cl.vicentepc.miappprueba3.models.Place;
+import cl.vicentepc.miappprueba3.views.dashboard.DashboardFragment;
 import cl.vicentepc.miappprueba3.views.results.ResultActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editTextRouteName;
-    private EditText editTextDate;
-    private EditText editTextAddress;
-    private EditText editTextDescription;
+    private EditText editTextRouteName, editTextDate, editTextAddress, editTextDescription;
+
+    private Button pick_a_date;
 
     private DatePickerDialog.OnDateSetListener thisdate;
 
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextDescription = findViewById(R.id.editTextDescription);
 
+        pick_a_date = findViewById(R.id.dateBtn);
+
         sendBtn = findViewById(R.id.sendBtn);
 
         myCalendar = Calendar.getInstance();
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         };
 
-        editTextDate.setOnClickListener(new View.OnClickListener() {
+        pick_a_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new DatePickerDialog(MainActivity.this, thisdate, myCalendar
@@ -89,36 +93,60 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String routeName = editTextRouteName.getText().toString();
-                String routeDate = editTextDate.getText().toString();
-                String routeAddress = editTextAddress.getText().toString();
-                String routeDescription = editTextDescription.getText().toString();
+                if (editTextRouteName.getText().toString().trim().length() <= 0) {
+                    Toast.makeText(MainActivity.this, "CAMPO NOMBRE RUTA ESTÁ VACÍO", Toast.LENGTH_LONG).show();
+                } else if (editTextDate.getText().toString().trim().length() <= 0) {
+                    Toast.makeText(MainActivity.this, "CAMPO FECHA ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
+                } else if (editTextAddress.getText().toString().trim().length() <= 0) {
+                    Toast.makeText(MainActivity.this, "CAMPO FECHA ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
+                } else if (editTextDescription.getText().toString().trim().length() <= 0) {
+                    Toast.makeText(MainActivity.this, "CAMPO DESCRIPCIÓN ESTÁ VACÍO(*)", Toast.LENGTH_LONG).show();
+                } else {
 
-                CurrentUser currentUser = new CurrentUser();
+                    String routeName = editTextRouteName.getText().toString();
+                    String routeDate = editTextDate.getText().toString();
+                    String routeAddress = editTextAddress.getText().toString();
+                    String routeDescription = editTextDescription.getText().toString();
 
-                String date = new SimpleDateFormat("MM/dd/yy HH:mm:ss", Locale.US).format(new Date());
+                    CurrentUser currentUser = new CurrentUser();
 
-                Place place = new Place();
-                place.setRute(routeName);
-                place.setDate(date);
-                place.setAddress(routeAddress);
-                place.setDescription(routeDescription);
+                    String date = new SimpleDateFormat("MM/dd/yy", Locale.US).format(new Date());
 
-                String key = currentUser.sanitizedEmail(currentUser.email());
-                String key_place = new Nodes().place(key).push().getKey();
-                new Nodes().place(key).child(key_place).setValue(place);
+                    Place place = new Place();
+                    place.setRute(routeName);
+                    place.setDate(date);
+                    place.setAddress(routeAddress);
+                    place.setDescription(routeDescription);
 
-                Toast.makeText(MainActivity.this, "Tu ruta favorita ha sido guardada", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-                intent.putExtra("routeName", routeName);
-                intent.putExtra("routeDate", routeDate);
-                intent.putExtra("routeAddress", routeAddress);
-                intent.putExtra("routeDescription", routeDescription);
-                startActivity(intent);
+                    String key = currentUser.sanitizedEmail(currentUser.email());
+                    String key_place = new Nodes().place(key).push().getKey();
 
+                    DatabaseReference duplication = new Nodes().places().child("places");
+
+                    String duplicate_key_place = duplication.push().getKey();
+
+                    place.setKey_place(duplicate_key_place);
+
+                   //duplication.child(duplicate_key_place).setValue(place);
+
+                    new Nodes().place(key).child(key_place).setValue(place);
+
+                    Toast.makeText(MainActivity.this, "TU RUTA HA SIDO GUARDADA", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+
+                    intent.putExtra("key", place);
+                    startActivity(intent);
+
+                }
 
             }
         });
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
     }
 
@@ -133,10 +161,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateLabel() {
-        String myFormat = "MM/dd/yy HH:mm:ss"; //In which you need put here
+        String myFormat = "MM/dd/yy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
         editTextDate.setText(sdf.format(myCalendar.getTime()));
+
     }
 
 }

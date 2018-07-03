@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import cl.vicentepc.miappprueba3.R;
+import cl.vicentepc.miappprueba3.models.Place;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -13,12 +14,9 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        String resultNameRute = getIntent().getStringExtra("routeName");
-        String resultRouteDate = getIntent().getStringExtra("routeDate");
-        String resultRouteAddress = getIntent().getStringExtra("routeAddress");
-        String resultRouteDescription = getIntent().getStringExtra("routeDescription");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Log.d("DATA", resultNameRute + resultRouteDate + resultRouteAddress + resultRouteDescription);
 
     }
 }
