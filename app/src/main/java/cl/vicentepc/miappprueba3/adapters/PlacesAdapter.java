@@ -10,11 +10,16 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cl.vicentepc.miappprueba3.PlacesListeners;
 import cl.vicentepc.miappprueba3.R;
 import cl.vicentepc.miappprueba3.models.Place;
 
 public class PlacesAdapter extends FirebaseRecyclerAdapter<Place, PlacesAdapter.PlaceHolder>{
+
+    private List<Place> places = new ArrayList<>();
 
     private PlacesListeners placesListeners;
 
@@ -33,7 +38,7 @@ public class PlacesAdapter extends FirebaseRecyclerAdapter<Place, PlacesAdapter.
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final PlaceHolder holder, int position, @NonNull Place model) {
+    protected void onBindViewHolder(@NonNull final PlaceHolder holder, final int position, @NonNull Place model) {
         holder.routeName.setText(model.getRute());
         holder.routeDate.setText(model.getDate());
         holder.routeAddress.setText(model.getAddress());
@@ -53,6 +58,7 @@ public class PlacesAdapter extends FirebaseRecyclerAdapter<Place, PlacesAdapter.
 
             first = false;
             placesListeners.dataChanged();
+            notifyDataSetChanged();
 
         }
     }

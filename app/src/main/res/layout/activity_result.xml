@@ -7,6 +7,15 @@
     android:orientation="vertical"
     tools:context=".views.results.ResultActivity">
 
+    <TextView
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:text="TUS RUTAS REGISTRADAS"
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <fragment
         tools:layout="@layout/fragment_result_place"
         android:id="@+id/fragmentResultPlaces"

@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         editTextAddress = findViewById(R.id.editTextAddress);
         editTextDescription = findViewById(R.id.editTextDescription);
 
+        TextView textViewPlaceList = findViewById(R.id.textViewPlaceList);
+
         pick_a_date = findViewById(R.id.dateBtn);
 
         sendBtn = findViewById(R.id.sendBtn);
@@ -129,16 +131,23 @@ public class MainActivity extends AppCompatActivity {
 
                    //duplication.child(duplicate_key_place).setValue(place);
 
-                    new Nodes().place(key).child(key_place).setValue(place);
+                    new Nodes().place(key).setValue(place);
 
                     Toast.makeText(MainActivity.this, "TU RUTA HA SIDO GUARDADA", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-
                     intent.putExtra("key", place);
                     startActivity(intent);
 
                 }
 
+            }
+        });
+
+        textViewPlaceList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                startActivity(intent);
             }
         });
 

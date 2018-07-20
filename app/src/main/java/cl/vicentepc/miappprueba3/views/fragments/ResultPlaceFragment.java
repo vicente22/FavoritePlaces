@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.Objects;
+
 import cl.vicentepc.miappprueba3.PlacesListeners;
 import cl.vicentepc.miappprueba3.R;
 import cl.vicentepc.miappprueba3.adapters.PlacesAdapter;
@@ -57,21 +59,22 @@ public class ResultPlaceFragment extends Fragment implements PlacesListeners{
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        RecyclerView recyclerView = view.findViewById(R.id.resultPlaceRecycler);
+        RecyclerView recyclerView = (RecyclerView) view;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(Objects.requireNonNull(getContext()), LinearLayoutManager.VERTICAL));
 
         FirebaseRecyclerOptions<Place> options = new FirebaseRecyclerOptions.Builder<Place>()
                 .setQuery(new Nodes().places(), Place.class)
-                .setLifecycleOwner(this)
+                .setLifecycleOwner(getActivity())
                 .build();
 
         PlacesAdapter placesAdapter = new PlacesAdapter(this,options);
 
         recyclerView.setAdapter(placesAdapter);
 
+        recyclerView.scrollToPosition(placesAdapter.getItemCount());
 
     }
 

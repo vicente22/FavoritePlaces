@@ -29,4 +29,8 @@ public class CurrentUser {
 
     }
 
+    public String sanitizedEmail() {
+        return sanitizedEmail(new CurrentUser().email());
+    }
+
 }

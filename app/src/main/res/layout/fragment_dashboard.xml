@@ -55,15 +55,16 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/textViewPlaceList"
         android:padding="2dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="13sp"
-        android:text="@string/contenido"
+        android:text="REVISA TU LISTA DE RUTAS"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:layout_marginTop="190dp"
-        android:background="@color/colorAccent"
-        android:layout_width="match_parent"
+        android:background="@color/graySemiLight"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>

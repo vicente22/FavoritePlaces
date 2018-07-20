@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grayLight"
+    android:padding="10dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/resultRouteName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryLight"
+        android:background="@color/colorPrimaryDark"
         android:padding="5dp"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="19sp" />
 
     <TextView
@@ -51,21 +53,22 @@
         android:textColor="@android:color/black" />
 
     <TextView
+        android:background="@color/graySemiLight"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/titleAddress"
         android:id="@+id/titleDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:text="Descripción de la ruta:"
         android:textColor="@android:color/black" />
 
     <TextView
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/titleAddress"
+        android:background="@color/graySemiLight"
+        android:layout_below="@+id/titleDescription"
         android:id="@+id/resultRouteDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
         android:textColor="@android:color/black" />
 
 </RelativeLayout>

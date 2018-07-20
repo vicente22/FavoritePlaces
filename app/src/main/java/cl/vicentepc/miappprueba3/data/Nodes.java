@@ -10,7 +10,7 @@ public class Nodes {
 
     public DatabaseReference places(){
 
-        return root.child("places");
+        return root.child("places").child(new CurrentUser().sanitizedEmail());
 
     }
 
